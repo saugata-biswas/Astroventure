@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Template/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Astroventure/Scenes/Menu.unity
+    guid: 861dca489bce4f342932d35dfb135fc5
+  - enabled: 1
+    path: Assets/Astroventure/Scenes/Loading.unity
+    guid: 8ffed7f9d8431184fb3877378dfdcc6e
+  - enabled: 1
+    path: Assets/Astroventure/Scenes/Level0.unity
+    guid: 93b2a379dfed0e244973d917d97cfd76
   m_configObjects: {}
