@@ -12,6 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 namespace Astroventure.Controls {
     public class ThirdPersonMovement : MonoBehaviour, PlayerControls.IPlayerActions
@@ -31,8 +32,19 @@ namespace Astroventure.Controls {
         [SerializeField] private float gravity = -9.81f;
         private Vector3 velocity;
 
+        [HideInInspector] public int health = 100;
+        [HideInInspector] public int life = 5;
+        public TMP_Text playerHealth;
+        public TMP_Text playerLife;
+        public GameObject SceneMenu;
+        public GameObject Inventory;
+        public List<string> currentInventory;
+        public TMP_Text InventoryText;
+
         void Awake()
         {
+            currentInventory = new List<string>();
+            currentInventory.Add("Gun");
             controller = GetComponent<CharacterController>();
             playerControls = new PlayerControls();
             playerControls.Player.SetCallbacks(this);
@@ -60,7 +72,7 @@ namespace Astroventure.Controls {
             }
         }
 
-        void FixedUpdate()
+        void Update()
         {
             bool groundedCC = controller.isGrounded;
             if (moveDirection.magnitude >= 0.1f)
@@ -81,6 +93,38 @@ namespace Astroventure.Controls {
             }
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
+
+            if (health <= 0)
+            {
+                health = 100;
+                life -= 1;
+            }
+
+            playerHealth.text = health.ToString();
+            if (life >= 0)
+                playerLife.text = life.ToString();
+            else if (life < 0)
+            {
+                playerLife.text = "You are dead!";
+                SceneMenu.SetActive(true);
+            }
+
+            if (currentInventory.Count > 0)
+            {
+                InventoryText.text = "";
+                for(int i = 0; i < currentInventory.Count; i++)
+                {
+                    InventoryText.text += currentInventory[i] + "\n";
+                } 
+            }
+
+            //if (currentInventory.Count > 0)
+            //{
+            //    if (Inventory.activeSelf && Input.GetKeyDown(KeyCode.Alpha1))
+            //    {
+
+            //    }
+            //}
         }
 
         private void OnEnable()
@@ -91,6 +135,16 @@ namespace Astroventure.Controls {
         private void OnDisable()
         {
             playerControls.Disable();
+        }
+
+        public void ShowInventory()
+        {
+            Inventory.SetActive(true);
+        }
+
+        public void CloseInventory()
+        {
+            Inventory.SetActive(false);
         }
     }
 }

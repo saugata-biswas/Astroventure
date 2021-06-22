@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: FindAxeConv0
   m_EditorClassIdentifier: 
   speaker: Krittim
-  narration: Have a quest for you. Find axe.
+  narration: 'Have a quest for you:  Find axe and power ball (blue).
+
+    Avoid electricuted
+    walls (red ones).'
   choice: []
