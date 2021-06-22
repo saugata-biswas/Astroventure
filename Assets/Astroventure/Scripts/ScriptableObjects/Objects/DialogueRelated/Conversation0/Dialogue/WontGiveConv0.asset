@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa9f0170e611348ae880a5b31a75ac, type: 3}
+  m_Name: WontGiveConv0
+  m_EditorClassIdentifier: 
+  speaker: Krittim
+  narration: Sorry, cannot give it to you. It is against our policy. However, if
+    you help me, I will help you.
+  choice:
+  - {fileID: 11400000, guid: 14f21cb8dac8c7b4cb1d47b18c798ec4, type: 2}
+  - {fileID: 11400000, guid: 36c17ea724d41ac4197155fdc3fb8980, type: 2}
