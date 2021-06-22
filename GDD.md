@@ -1,6 +1,6 @@
 ### Game Design Document
 
-Date: 31.05.2021  
+Date: 22.06.2021  
 Name of the Game: Astroventure  
 Name of the Student: Saugata Biswas  
 Tutorial: 1  
@@ -80,8 +80,8 @@ The spaceship is rotated on its own axis, hence, it has a artificial gravitation
 |Category name| Description|
 |---|---|
 |Player character| This will be a single player charater.|
-|NPC0(yet to be named)|This NPC controls some sentinels/bots|
-|NPC1(yet to be named)|This NPC will have similar characteristics as the NPC0|
+|Krittim(NPC0)|This NPC controls some sentinels/bots|
+|Mittha(NPC1)|This NPC will have similar characteristics as the NPC0|
 |sentinels/bots| These sentinels/bots control will be specific to a game level|
 
 ## Rules
@@ -92,6 +92,8 @@ When the player enters the level, the NPCs are suspicious of the player and rega
 |---|---|
 |Dialogue using emojis|This will be to used to either accept or reject a proposal. Emojis will also be used to show mental states of NPCs|
 |Guns|Upon firing guns on the sentinels/bots thosse would be destroyed. NPCs cannot be destroyed|
+|Axe|Upon using some doors can be broken|
+|Balls|Can be rolled to disperse sentinels/bots|
 
 ## Artificial intelligence
 A probabilistic graphical model or decision tree will be used to determine which of the NPCs behaves how, e.g. as friend or foe.
@@ -109,17 +111,17 @@ There could be some isolated NPCs which aren't controlled by the two main AI NPC
 |Asset|Description|
 |---|---|
 |Player character| main character that the player can control|
-|NPC0 and NPC1|Floating holograms|
+|Krittim(NPC0) and Mittha(NPC1)|Floating holograms|
 |sentinels/bots|The gameobjects that fights with the player or assists him|
 |Guns|Used to kill the sentinels/bots|
 |Oxygen cylinder|Used to sustain player character's life|
 |Electro-magnetic pulse(EMP) gun|Special gun that can disrupt the AI NPCs prior belief/attitudes|
 
 ## Dynamics
-
+Yet to be decided.
 
 ## Game world
-The game takes place on a spaceship with artificial gravity. Upon using the EMP gun, the ship's electrical equipments can malfunction. The gravitational pull can disappear temporarily.
+The game takes place on a spaceship, named Synaptron, with artificial gravity. Upon using the EMP gun, the ship's electrical equipments can malfunction. The gravitational pull can disappear temporarily.
 
 ## Game world theme details
 Game world is a futuristic spaceship. It would have an industrial interior. 
@@ -156,7 +158,7 @@ The game will be seen from 3rd person perspective. The player needs to control t
 Game difficulty can be adjusted initially. It would increase/decrease the game uncertainty in the AI NPCs' belief system.
 
 ## Visuals and sounds
-asfdsafd asdfasdfadf asfdasfd asfd asfd
+Visuals sounds design is yet to be decided.
 
 ## Game visuals
 At first, freely available assets from asset store will be used for the player character, NPCs, sentinels/bots. Some of the visuals can be updated later. 
@@ -175,7 +177,14 @@ Document information will be constantly updated.
 |AI|Artificial Intelligence|
 
 ## Document references
-Currently, no references are given.
+Following references are followed to make the game.
+
+Time. Unity Learn. https://learn.unity.com/tutorial/time-0fbw?projectId=5df2611eedbc2a0020d90217&amp;tab=overview&amp;uv=2019.4.
+
+Pluggable AI. Unity Learn https://learn.unity.com/tutorial/pluggable-ai-with-scriptable-objects#5c7f8528edbc2a002053b487
+
+Code Monkey - Scnene Manager in Unity https://unitycodemonkey.com/video.php?v=3I5d2rUJ0pE
+
 
 ## Attachments
 Currently, there are no attachments.
