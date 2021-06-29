@@ -161,7 +161,7 @@ Game difficulty can be adjusted initially. It would increase/decrease the game u
 Visuals sounds design is yet to be decided.
 
 ## Game visuals
-At first, freely available assets from asset store will be used for the player character, NPCs, sentinels/bots. Some of the visuals can be updated later. 
+At first, freely available assets from asset store will be used for the player character, NPCs, sentinels/bots. Some of the visuals can be updated later. Animations has been added from mixamo.com; a humanoid character named Dreyar has been added. Idle, walking, and running animation has been added.
 
 ## Game sounds
 Curretly, only freely available sounds/music will be used.
@@ -185,6 +185,9 @@ Pluggable AI. Unity Learn https://learn.unity.com/tutorial/pluggable-ai-with-scr
 
 Code Monkey - Scnene Manager in Unity https://unitycodemonkey.com/video.php?v=3I5d2rUJ0pE
 
+Mixamo https://www.mixamo.com/
+
+Unity's animation system  https://www.youtube.com/playlist?list=PLwyUzJb_FNeTQwyGujWRLqnfKpV-cj-eO
 
 ## Attachments
 Currently, there are no attachments.
