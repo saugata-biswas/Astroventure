@@ -43,6 +43,14 @@ namespace Astroventure.Controls
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8e56388-1ee3-4945-be3b-b125cc6e3627"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -155,6 +163,17 @@ namespace Astroventure.Controls
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70847344-8316-4e46-abfc-6c2e5d1fb700"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardAndMouse"",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -194,6 +213,7 @@ namespace Astroventure.Controls
             m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
             m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
             m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+            m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -246,6 +266,7 @@ namespace Astroventure.Controls
         private readonly InputAction m_Player_Movement;
         private readonly InputAction m_Player_Shoot;
         private readonly InputAction m_Player_Jump;
+        private readonly InputAction m_Player_Run;
         public struct PlayerActions
         {
             private @PlayerControls m_Wrapper;
@@ -253,6 +274,7 @@ namespace Astroventure.Controls
             public InputAction @Movement => m_Wrapper.m_Player_Movement;
             public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
+            public InputAction @Run => m_Wrapper.m_Player_Run;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -271,6 +293,9 @@ namespace Astroventure.Controls
                     @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @Run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                    @Run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                    @Run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -284,6 +309,9 @@ namespace Astroventure.Controls
                     @Jump.started += instance.OnJump;
                     @Jump.performed += instance.OnJump;
                     @Jump.canceled += instance.OnJump;
+                    @Run.started += instance.OnRun;
+                    @Run.performed += instance.OnRun;
+                    @Run.canceled += instance.OnRun;
                 }
             }
         }
@@ -311,6 +339,7 @@ namespace Astroventure.Controls
             void OnMovement(InputAction.CallbackContext context);
             void OnShoot(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnRun(InputAction.CallbackContext context);
         }
     }
 }

@@ -27,7 +27,9 @@ namespace Astroventure.Controls {
         [SerializeField] private float smoothTurnTime = 0.1f;
         private float smoothTurnVelocity;
 
-        private bool jump = false;
+        private bool isMovePressed = false;
+        private bool isJumpPressed = false;
+        private bool isRunPressed = false;
         [SerializeField] private float jumpHeight = 0.5f;
         [SerializeField] private float gravity = -9.81f;
         private Vector3 velocity;
@@ -40,6 +42,8 @@ namespace Astroventure.Controls {
         public GameObject Inventory;
         public List<string> currentInventory;
         public TMP_Text InventoryText;
+
+        [SerializeField] public Animator animator;
 
         void Awake()
         {
@@ -58,22 +62,34 @@ namespace Astroventure.Controls {
             moveDirection = new Vector3(move.x, 0, move.y).normalized;
         }
 
+        public void OnRun(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                isRunPressed = true;
+            }
+        }
+
         public void OnShoot(InputAction.CallbackContext context)
         {
-            if(context.performed)
-                Debug.Log("Shoot!");
+            //if(context.performed)
+            //    Debug.Log("Shoot!");
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                jump = true;
+                isJumpPressed = true;
             }
         }
 
         void Update()
         {
+            bool isWalking = animator.GetBool("isWalking");
+            bool isRunning = animator.GetBool("isRunning");
+            bool hasJumped = animator.GetBool("hasJumped");
+
             bool groundedCC = controller.isGrounded;
             if (moveDirection.magnitude >= 0.1f)
             {
@@ -82,17 +98,50 @@ namespace Astroventure.Controls {
                 transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
                 Vector3 ccMoveDirection = Quaternion.Euler(0.0f, angle, 0.0f) * Vector3.forward;
-                
+
                 controller.Move(ccMoveDirection.normalized * moveSpeed * Time.deltaTime);
                 //controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+                isMovePressed = true;
             }
-            if (groundedCC && jump)
+            else
+            {
+                isMovePressed = false;
+            }
+
+            if (isMovePressed && !isWalking)
+            {
+                animator.SetBool("isWalking", true);
+            }
+            else if (!isMovePressed && isWalking)
+            {
+                animator.SetBool("isWalking", false);
+            }
+
+            if ((isMovePressed && isRunPressed) && !isRunning)
+            {
+                animator.SetBool("isRunning", true);
+            }
+            else if ((!isMovePressed || !isRunPressed) && isRunning)
+            {
+                animator.SetBool("isRunning", false);
+            }
+
+            if (groundedCC && isJumpPressed)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
-                jump = false;
+                isJumpPressed = false;
+                animator.SetBool("hasJumped", true);
             }
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
+
+            if (hasJumped && groundedCC)
+            {
+                //animator.SetBool("hasJumped", false);
+            }
+
+
 
             if (health <= 0)
             {
