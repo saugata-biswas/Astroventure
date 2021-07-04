@@ -1,0 +1,3 @@
+[submodule "Assets/stars-skybox-shader"]
+	path = Assets/stars-skybox-shader
+	url = https://gitlab.com/janmroz97/stars-skybox-shader.git
