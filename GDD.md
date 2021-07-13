@@ -189,6 +189,10 @@ Mixamo https://www.mixamo.com/
 
 Unity's animation system  https://www.youtube.com/playlist?list=PLwyUzJb_FNeTQwyGujWRLqnfKpV-cj-eO
 
+Programming NPC Behavior https://www.youtube.com/watch?v=NEvdyefORBo
+
+Navigation Mesh Basics https://www.youtube.com/watch?v=NGGoOa4BpmY
+
 ## Attachments
 Currently, there are no attachments.
 
