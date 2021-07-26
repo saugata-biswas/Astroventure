@@ -9,8 +9,8 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "b8f5b458-0fc3-41a0-b57c-ab0169d75c3f",
-                    "expectedControlType": "",
-                    "processors": "",
+                    "expectedControlType": "Vector2",
+                    "processors": "NormalizeVector2",
                     "interactions": ""
                 },
                 {
@@ -53,7 +53,7 @@
                 {
                     "name": "",
                     "id": "ddf15698-0f6b-43d8-8c9e-ad6498a414f7",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -64,7 +64,7 @@
                 {
                     "name": "wasdKeys",
                     "id": "104903ab-d590-4860-800e-3f0b5bf0a785",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -141,7 +141,7 @@
                 {
                     "name": "",
                     "id": "8eda0871-bf10-4594-9485-3efc7efabde8",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -156,6 +156,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardAndMouse",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4355b78-dfbc-4553-b980-7cd2315fca46",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
