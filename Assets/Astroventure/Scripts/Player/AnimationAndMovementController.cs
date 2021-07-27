@@ -33,7 +33,9 @@ namespace Astroventure.Controls
         // for storing optimized getter/setter parameter id
         private int isWalkingHash;
         private int isRunningHash;
+        private int isJumpingHash;
 
+        private bool isJumpAnimating = false;
 
         // a small float number to compare float values
         private const float epsilon = 0.0000001f;
@@ -87,6 +89,7 @@ namespace Astroventure.Controls
         {
             bool isWalking = animator.GetBool(isWalkingHash);
             bool isRunning = animator.GetBool(isRunningHash);
+            //bool isJumping = animator.GetBool(isJumpingHash);
 
             if (isMovePressed && !isWalking)
             {
@@ -100,10 +103,12 @@ namespace Astroventure.Controls
             if ((isMovePressed && isRunPressed) && !isRunning)
             {
                 animator.SetBool(isRunningHash, true);
+                //animator.SetBool(isWalkingHash, false);
             }
             else if ((!isMovePressed || !isRunPressed) && isRunning)
             {
                 animator.SetBool(isRunningHash, false);
+                //animator.SetBool(isWalkingHash, false);
             }
         }
 
@@ -132,6 +137,13 @@ namespace Astroventure.Controls
             if (controller.isGrounded)
             {
                 moveDirection.y = groundedGravity;
+                animator.SetBool(isJumpingHash, false);
+                
+                if (isRunPressed && isJumpAnimating)
+                {
+                    animator.SetBool(isWalkingHash, false);
+                    isJumpAnimating = false;
+                }
             }
             else if (isFalling)
             {
@@ -178,6 +190,8 @@ namespace Astroventure.Controls
                 isJumping = true;
                 moveDirection.y = (initialJumpVelocity + 0.0f)/ 2.0f; // assuming previous Y velocity is zero
                 //Debug.Log("Jump initiated, initialJumpVelocity: " + initialJumpVelocity.ToString());
+                animator.SetBool(isJumpingHash, true);
+                isJumpAnimating = true;
             }
             else if (!isJumpPressed && isJumping && controller.isGrounded)
             {
@@ -194,6 +208,7 @@ namespace Astroventure.Controls
 
             isWalkingHash = Animator.StringToHash("isWalking");
             isRunningHash = Animator.StringToHash("isRunning");
+            isJumpingHash = Animator.StringToHash("isJumping");
 
 
             moveDirection = Vector3.zero;
@@ -220,6 +235,8 @@ namespace Astroventure.Controls
             handleGravity();
             handleJump();
 
+
+            //Debug.Log(animator.GetBool(isWalkingHash) + ", " + animator.GetBool(isRunningHash) + ", " + animator.GetBool(isJumpingHash));
             
         }
 
