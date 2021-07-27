@@ -729,3 +729,6 @@ MonoBehaviour:
   moveSpeed: 4
   rotationFactorPerFrame: 11
   runFactor: 2
+  gravity: -9.8
+  maxJumpHeight: 0.5
+  maxJumpTime: 0.5
