@@ -1,3 +1,4 @@
+// This script is adapted from [iHeartGameDev, https://www.youtube.com/watch?v=bXNFxQpp2qk]
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -112,7 +113,6 @@ namespace Astroventure.Controls
             }
         }
 
-        // this method has been taken from [iHeartGameDev, https://www.youtube.com/watch?v=bXNFxQpp2qk]
         private void handleRotation()
         {
             //Vector3 positionToLookAt = new Vector3(moveDirection.x, 0.0f, moveDirection.z);
@@ -189,7 +189,9 @@ namespace Astroventure.Controls
             {
                 isJumping = true;
                 moveDirection.y = (initialJumpVelocity + 0.0f)/ 2.0f; // assuming previous Y velocity is zero
-                //Debug.Log("Jump initiated, initialJumpVelocity: " + initialJumpVelocity.ToString());
+                                                                      //Debug.Log("Jump initiated, initialJumpVelocity: " + initialJumpVelocity.ToString());
+
+                //if(!isJumpAnimating)
                 animator.SetBool(isJumpingHash, true);
                 isJumpAnimating = true;
             }
@@ -205,6 +207,7 @@ namespace Astroventure.Controls
             playerControls = new PlayerControls();
             playerControls.Player.SetCallbacks(this);
             animator = transform.GetChild(1).GetComponent<Animator>();
+            //animator = GetComponent<Animator>();
 
             isWalkingHash = Animator.StringToHash("isWalking");
             isRunningHash = Animator.StringToHash("isRunning");
