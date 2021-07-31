@@ -1,4 +1,5 @@
 // This script is adapted from [iHeartGameDev, https://www.youtube.com/watch?v=bXNFxQpp2qk]
+// and [Brakeys, https://www.youtube.com/watch?v=4HpC--2iowE]
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,10 @@ namespace Astroventure.Controls
         [SerializeField] private float moveSpeed;
         [SerializeField] [Range(10.0f, 15.0f)] float rotationFactorPerFrame;
         [SerializeField] [Range(1.0f, 5.0f)] float runFactor;
+
+        [SerializeField] private float smoothTurnTime = 0.1f;
+        private float smoothTurnVelocity;
+
         private Vector3 moveDirection;
         private Vector3 velocity;
         private bool isMovePressed = false;
@@ -113,6 +118,7 @@ namespace Astroventure.Controls
             }
         }
 
+        // works well when the camera is static. for cinemachine it doesn't work well.
         private void handleRotation()
         {
             //Vector3 positionToLookAt = new Vector3(moveDirection.x, 0.0f, moveDirection.z);
@@ -226,14 +232,32 @@ namespace Astroventure.Controls
 
         void Update()
         {
-            
-            handleRotation();
+
+            //handleRotation();
             handleAnimation();
 
-            if (isRunPressed)
-                controller.Move(moveDirection * moveSpeed * runFactor * Time.deltaTime);
-            else
-                controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+            // set rotation for character controller
+            float turnAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, turnAngle, ref smoothTurnVelocity, smoothTurnTime);
+            transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+
+            Vector3 ccMoveDirection = Quaternion.Euler(0.0f, angle, 0.0f) * Vector3.forward;
+            ccMoveDirection = ccMoveDirection.normalized;
+            ccMoveDirection.y = moveDirection.y;
+
+            if (moveDirection.magnitude >= 0.1f)
+            { 
+                if (isRunPressed)
+                {
+                    //controller.Move(moveDirection * moveSpeed * runFactor * Time.deltaTime);
+                    controller.Move(ccMoveDirection * moveSpeed * runFactor * Time.deltaTime);
+                }
+                else
+                {
+                    //controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+                    controller.Move(ccMoveDirection * moveSpeed * Time.deltaTime);
+                }
+            }
 
             handleGravity();
             handleJump();
