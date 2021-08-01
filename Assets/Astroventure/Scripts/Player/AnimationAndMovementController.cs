@@ -15,7 +15,7 @@ namespace Astroventure.Controls
 
         [SerializeField] private float moveSpeed;
         [SerializeField] [Range(10.0f, 15.0f)] float rotationFactorPerFrame;
-        [SerializeField] [Range(1.0f, 5.0f)] float runFactor;
+        [SerializeField] [Range(1.0f, 5.0f)] float runFactor = 2.0f;
 
         [SerializeField] private float smoothTurnTime = 0.1f;
         private float smoothTurnVelocity;
@@ -30,8 +30,8 @@ namespace Astroventure.Controls
         float groundedGravity = -0.05f;
 
         private float initialJumpVelocity;
-        [SerializeField] [Range(0.3f, 1.2f)]private float maxJumpHeight;    // is actually the fraction of the body height the character will jump
-        [SerializeField] [Range(0.1f, 4.0f)] private float maxJumpTime;
+        [SerializeField] [Range(0.3f, 1.2f)]private float maxJumpHeight = 0.5f;    // is actually the fraction of the body height the character will jump
+        [SerializeField] [Range(0.1f, 4.0f)] private float maxJumpTime = 0.5f;
         private bool isJumping = false;
         private float fallMultiplier = 2.0f;
 
@@ -153,6 +153,7 @@ namespace Astroventure.Controls
             }
             else if (isFalling)
             {
+                // Velocity Verlet Integration
                 float previousYVelocity = moveDirection.y;
                 float newYVelocity = moveDirection.y + (gravity * fallMultiplier * Time.deltaTime);
                 // clamping is performed to prevent excessive high fallspeed
@@ -161,11 +162,11 @@ namespace Astroventure.Controls
             }
             else
             {
-                //gravity = -9.8f; // not needed
+                // gravity = -9.8f; // not needed
+                // Eular Integration
+                // moveDirection.y += gravity * Time.deltaTime;
 
-                // without velocity Verlet and Eular integration
-                //moveDirection.y += gravity * Time.deltaTime;
-
+                // Velocity Verlet Integration
                 // with velocity Verlet and Eular integration
                 float previousYVelocity = moveDirection.y;
                 float newYVelocity = moveDirection.y + (gravity * Time.deltaTime);
@@ -213,7 +214,6 @@ namespace Astroventure.Controls
             playerControls = new PlayerControls();
             playerControls.Player.SetCallbacks(this);
             animator = transform.GetChild(1).GetComponent<Animator>();
-            //animator = GetComponent<Animator>();
 
             isWalkingHash = Animator.StringToHash("isWalking");
             isRunningHash = Animator.StringToHash("isRunning");
@@ -236,17 +236,26 @@ namespace Astroventure.Controls
             //handleRotation();
             handleAnimation();
 
-            // set rotation for character controller
-            float turnAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, turnAngle, ref smoothTurnVelocity, smoothTurnTime);
-            transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+            //// set rotation for character controller
+            //float turnAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+            //float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, turnAngle, ref smoothTurnVelocity, smoothTurnTime);
+            //transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
-            Vector3 ccMoveDirection = Quaternion.Euler(0.0f, angle, 0.0f) * Vector3.forward;
-            ccMoveDirection = ccMoveDirection.normalized;
-            ccMoveDirection.y = moveDirection.y;
+            //Vector3 ccMoveDirection = Quaternion.Euler(0.0f, angle, 0.0f) * Vector3.forward;
+            //ccMoveDirection = ccMoveDirection.normalized;
+            //ccMoveDirection.y = moveDirection.y;
 
             if (moveDirection.magnitude >= 0.1f)
-            { 
+            {
+                // set rotation for character controller
+                float turnAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, turnAngle, ref smoothTurnVelocity, smoothTurnTime);
+                transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+
+                Vector3 ccMoveDirection = Quaternion.Euler(0.0f, angle, 0.0f) * Vector3.forward;
+                ccMoveDirection = ccMoveDirection.normalized;
+                ccMoveDirection.y = moveDirection.y;
+
                 if (isRunPressed)
                 {
                     //controller.Move(moveDirection * moveSpeed * runFactor * Time.deltaTime);

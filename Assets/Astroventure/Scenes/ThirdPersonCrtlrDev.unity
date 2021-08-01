@@ -616,7 +616,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366279639}
-  m_LocalRotation: {x: 0.104109846, y: -0.000000017112876, z: 0.0000000017913536, w: 0.99456584}
+  m_LocalRotation: {x: 0.104109846, y: 0.00000001711288, z: -0.000000001791354, w: 0.99456584}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -829,7 +829,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597994997}
-  m_LocalRotation: {x: 0.104109846, y: -0.00000003422576, z: 0.0000000035827072, w: 0.99456584}
+  m_LocalRotation: {x: 0.104109846, y: 0.000000034225764, z: -0.0000000035827075, w: 0.99456584}
   m_LocalPosition: {x: 0, y: 2, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1206,7 +1206,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646835132}
-  m_LocalRotation: {x: 0.12218327, y: 0.000000017077465, z: -0.0000000021023319, w: 0.9925076}
+  m_LocalRotation: {x: 0.12218325, y: -0.000000017077465, z: 0.0000000021023316, w: 0.9925076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1690,7 +1690,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4933218808332071831, guid: 219c18ce4c267bd42bebd9404367143e, type: 3}
   m_PrefabInstance: {fileID: 4933218806869489344}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4933218806869489346
+--- !u!4 &4933218806869489347 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4933218808332071832, guid: 219c18ce4c267bd42bebd9404367143e, type: 3}
+  m_PrefabInstance: {fileID: 4933218806869489344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4933218806869489348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1699,18 +1704,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4933218806869489345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c65e58261e4f374c87d441e92cb80d0, type: 3}
+  m_Script: {fileID: 11500000, guid: f640eadcb4675ec4fa308abae0ac7710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  rotationFactorPerFrame: 11
   runFactor: 2
   smoothTurnTime: 0.1
   gravity: -9.8
   maxJumpHeight: 0.5
   maxJumpTime: 0.5
---- !u!4 &4933218806869489347 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4933218808332071832, guid: 219c18ce4c267bd42bebd9404367143e, type: 3}
-  m_PrefabInstance: {fileID: 4933218806869489344}
-  m_PrefabAsset: {fileID: 0}
