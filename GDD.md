@@ -193,6 +193,10 @@ Programming NPC Behavior https://www.youtube.com/watch?v=NEvdyefORBo
 
 Navigation Mesh Basics https://www.youtube.com/watch?v=NGGoOa4BpmY
 
+Crosshair Pack https://www.kenney.nl/assets/crosshair-pack
+
+3rd Person Shooter Controller with Cinemachine & Input System - Unity Tutorial https://www.youtube.com/watch?v=SeBEvM2zMpY
+
 ## Attachments
 Currently, there are no attachments.
 

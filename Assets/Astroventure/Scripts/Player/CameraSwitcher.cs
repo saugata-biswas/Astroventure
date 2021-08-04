@@ -9,10 +9,12 @@ namespace Astroventure.Controls // namespace for game logic
     {
         private LookControls lookControls;
         private bool isFocusPressed = false;
+        private int numOfFocusPressed = 0;
 
         [SerializeField] private GameObject mainCinemachineCamera;
         [SerializeField] private GameObject aimCamera;
         [SerializeField] private GameObject aimReticle;
+        [SerializeField] private SimpleMoveAndAnimationController controller;
 
         public void OnMouseLook(InputAction.CallbackContext context)
         {
@@ -22,6 +24,10 @@ namespace Astroventure.Controls // namespace for game logic
         public void OnFocusAim(InputAction.CallbackContext context)
         {
             isFocusPressed = context.ReadValueAsButton();
+            if (context.performed)
+            {
+                numOfFocusPressed = numOfFocusPressed + 1;
+            }
         }
 
         /// <summary>
@@ -54,19 +60,27 @@ namespace Astroventure.Controls // namespace for game logic
 
         void Update()
         {
-            if (isFocusPressed)
+            bool focusNow = (numOfFocusPressed % 2 != 0);
+
+            if (focusNow)
             {
                 mainCinemachineCamera.SetActive(false);
                 aimCamera.SetActive(true);
 
                 // give some time before the aim camera blends in.
                 StartCoroutine(ShowReticle());
+
+                if (controller.isMovePressed || controller.isJumpPressed)
+                {
+                    numOfFocusPressed = 0;
+                }
             }
             else 
             {
                 mainCinemachineCamera.SetActive(true);
                 aimCamera.SetActive(false);
                 aimReticle.SetActive(false);
+                numOfFocusPressed = 0;
             }
         }
     }

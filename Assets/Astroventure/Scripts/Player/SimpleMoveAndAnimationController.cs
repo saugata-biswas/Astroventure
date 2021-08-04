@@ -22,15 +22,15 @@ namespace Astroventure.Controls // namespace for game logic
         [SerializeField] [Range(2.0f, 10.0f)] private float moveSpeed = 4.0f;
         [SerializeField] [Range(1.0f, 5.0f)] private float runFactor = 2.0f; // run factor is multiplied with moveSpeed to get the run speed
 
-        [SerializeField] [Range(0.001f, 0.2f)] private float smoothTurnTime = 0.1f;
+        [SerializeField] [Range(0.001f, 1.0f)] private float smoothTurnTime = 0.1f;
         private float smoothTurnVelocity;
 
         // variables related to user input
         private Vector3 moveDirection;
-        private bool isMovePressed = false;
+        public bool isMovePressed { get; set; } = false;
         private bool isRunPressed = false;
-        private bool isJumpPressed = false;
-
+        public bool isJumpPressed { get; set; } = false;
+        
         [SerializeField] public float gravity = -9.8f;
         private float groundedGravity = -0.05f; // gravity to be applied when the character controller is grounded
 
