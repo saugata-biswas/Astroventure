@@ -197,6 +197,8 @@ Crosshair Pack https://www.kenney.nl/assets/crosshair-pack
 
 3rd Person Shooter Controller with Cinemachine & Input System - Unity Tutorial https://www.youtube.com/watch?v=SeBEvM2zMpY
 
+Sci-Fi Gun Heavy https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-heavy-87878
+
 ## Attachments
 Currently, there are no attachments.
 

@@ -7,6 +7,7 @@ public class AnimationSwitcher : MonoBehaviour
     [SerializeField] private RuntimeAnimatorController animatorWithoutWeapon;
     [SerializeField] private AnimatorOverrideController animatorWithWeapon;
     private Animator currentAnimator;
+    [SerializeField] private GameObject weapon;
 
     public bool weaponAtHand;
     private bool weaponAtHandInPrevFrame;
@@ -16,8 +17,7 @@ public class AnimationSwitcher : MonoBehaviour
 
     void Start()
     {
-        weaponAtHand = false;
-        weaponAtHandInPrevFrame = weaponAtHand;
+        weaponAtHandInPrevFrame = false;
         animatorOverrideController = new AnimatorOverrideController();
         currentAnimator = GetComponent<Animator>();
     }
@@ -31,6 +31,7 @@ public class AnimationSwitcher : MonoBehaviour
             {
                 animatorOverrideController = animatorWithWeapon;
                 currentAnimator.runtimeAnimatorController = animatorOverrideController;
+                weapon.SetActive(true);
 
                 // put the transform at ground
                 transform.position = new Vector3(transform.position.x, transform.position.y - 0.833f, transform.position.z);
@@ -38,7 +39,7 @@ public class AnimationSwitcher : MonoBehaviour
             else
             {
                 currentAnimator.runtimeAnimatorController = animatorWithoutWeapon;
-
+                weapon.SetActive(false);
                 // lift the transform 
                 transform.position = new Vector3(transform.position.x, transform.position.y + 0.833f, transform.position.z);
             }
