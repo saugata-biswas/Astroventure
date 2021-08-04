@@ -199,6 +199,8 @@ Crosshair Pack https://www.kenney.nl/assets/crosshair-pack
 
 Sci-Fi Gun Heavy https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-heavy-87878
 
+Bullet hole https://opengameart.org/content/bullet-decal
+
 ## Attachments
 Currently, there are no attachments.
 

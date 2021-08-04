@@ -24,6 +24,11 @@ namespace Astroventure.Controls // namespace for game logic
 
         [SerializeField] [Range(0.001f, 1.0f)] private float smoothTurnTime = 0.1f;
         private float smoothTurnVelocity;
+        [SerializeField] public bool HasGunAtHand = false;
+        [SerializeField] private Transform barrelTransform;
+        [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private Transform bulletParent;
+        [SerializeField] private float maxBulletTravelDistance = 100.0f;
 
         // variables related to user input
         private Vector3 moveDirection;
@@ -86,8 +91,10 @@ namespace Astroventure.Controls // namespace for game logic
         /// <param name="context">Is a InputAction callback context.</param>
         public void OnShoot(InputAction.CallbackContext context)
         {
-            //if(context.performed)
-            //    Debug.Log("Shoot!");
+            if (context.performed)
+            {
+                ShootGun();
+            }
         }
 
         /// <summary>
@@ -202,6 +209,23 @@ namespace Astroventure.Controls // namespace for game logic
             else if ((!isMovePressed || !isRunPressed) && isRunning)
             {
                 animator.SetBool(isRunningHash, false);
+            }
+        }
+
+        protected void ShootGun()
+        {
+            RaycastHit hit;
+            GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, barrelTransform.rotation, bulletParent);
+            BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
+            if (Physics.Raycast(barrelTransform.position, barrelTransform.forward, out hit, Mathf.Infinity))
+            {
+                bulletBehavior.bulletTarget = hit.point;
+                bulletBehavior.HasHitAnything = true;
+            }
+            else 
+            {
+                bulletBehavior.bulletTarget = barrelTransform.position + barrelTransform.forward * maxBulletTravelDistance;
+                bulletBehavior.HasHitAnything = false;
             }
         }
 
