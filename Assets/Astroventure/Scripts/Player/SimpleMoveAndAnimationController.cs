@@ -56,6 +56,9 @@ namespace Astroventure.Controls // namespace for game logic
         // a small float number to compare float values
         private const float epsilon = 0.0000001f;
 
+        [SerializeField] private AudioClip[] audioClips;
+        private AudioSource audioSource;
+
         /// <summary>
         /// Implements PlayerControls.IPlayerActions's OnMovement method.
         /// </summary>
@@ -217,6 +220,8 @@ namespace Astroventure.Controls // namespace for game logic
         {
             RaycastHit hit;
             GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, barrelTransform.rotation, bulletParent);
+            audioSource.PlayOneShot(audioSource.clip);
+
             BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
             if (Physics.Raycast(barrelTransform.position, barrelTransform.forward, out hit, Mathf.Infinity))
             {
@@ -250,7 +255,9 @@ namespace Astroventure.Controls // namespace for game logic
             animator = transform.GetChild(1).GetComponent<Animator>();
             playerControls = new PlayerControls();
             playerControls.Player.SetCallbacks(this);
-            
+            audioSource = GetComponent<AudioSource>();
+            audioSource.clip = audioClips[0];
+
             isWalkingHash = Animator.StringToHash("isWalking");
             isRunningHash = Animator.StringToHash("isRunning");
             isJumpingHash = Animator.StringToHash("isJumping");
