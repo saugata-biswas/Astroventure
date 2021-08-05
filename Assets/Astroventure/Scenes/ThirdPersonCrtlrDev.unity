@@ -627,10 +627,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 502644800146505077, guid: c6e780756f79db44eb5b71de782702a3, type: 3}
-      propertyPath: field of view
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 502644800146505078, guid: c6e780756f79db44eb5b71de782702a3, type: 3}
       propertyPath: aimCamera
       value: 
@@ -866,6 +862,10 @@ PrefabInstance:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 505307367}
+    - target: {fileID: 4933218806869489348, guid: 219c18ce4c267bd42bebd9404367143e, type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f070c6176f69ff4faf7f74846cfe5fd, type: 3}
     - target: {fileID: 4933218808332071831, guid: 219c18ce4c267bd42bebd9404367143e, type: 3}
       propertyPath: m_Name
       value: Player
