@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations.Rigging;
 
 namespace Astroventure.Controls // namespace for game logic
 {
@@ -16,6 +17,7 @@ namespace Astroventure.Controls // namespace for game logic
         [SerializeField] private GameObject aimCamera;
         [SerializeField] private GameObject aimReticle;
         [SerializeField] private SimpleMoveAndAnimationController controller;
+        [SerializeField] private GameObject animationRig;
 
 
         //[SerializeField] private Transform barrelTransform;
@@ -72,6 +74,7 @@ namespace Astroventure.Controls // namespace for game logic
                 mainCinemachineCamera.SetActive(false);
                 aimCamera.SetActive(true);
 
+                animationRig.GetComponent<Rig>().weight = 1.0f;
                 RaycastHit hit;
                 if (Physics.Raycast(aimCamera.transform.position, aimCamera.transform.forward, out hit, Mathf.Infinity))
                 {
@@ -101,6 +104,7 @@ namespace Astroventure.Controls // namespace for game logic
                 aimReticle.SetActive(false);
                 numOfFocusPressed = 0;
                 afterFocusReset = true;
+                animationRig.GetComponent<Rig>().weight = 0.0f;
             }
         }
     }

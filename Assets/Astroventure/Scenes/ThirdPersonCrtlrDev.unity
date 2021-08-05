@@ -881,7 +881,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366279639}
-  m_LocalRotation: {x: 0.010233051, y: 0.000000017239046, z: -1.7641728e-10, w: 0.99994767}
+  m_LocalRotation: {x: 0.010233051, y: -0.000000017239053, z: 1.7641735e-10, w: 0.99994767}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1340,7 +1340,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 5000
-  field of view: 25
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1365,8 +1365,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597994997}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.54473, z: -4}
+  m_LocalRotation: {x: 0.010233046, y: -0.000000034478102, z: 3.528345e-10, w: 0.99994767}
+  m_LocalPosition: {x: 0, y: 2, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1422,6 +1422,7 @@ MonoBehaviour:
   aimCamera: {fileID: 1001669243}
   aimReticle: {fileID: 691456673}
   controller: {fileID: 959059223}
+  animationRig: {fileID: 1436082040}
   gunTargetTransform: {fileID: 1855631995}
 --- !u!4 &609348338 stripped
 Transform:
@@ -2522,7 +2523,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646835132}
-  m_LocalRotation: {x: 0.028419903, y: 0.000000017333278, z: -4.92809e-10, w: 0.9995961}
+  m_LocalRotation: {x: 0.028419882, y: -0.000000017333278, z: 4.928087e-10, w: 0.9995961}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2803,7 +2804,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882610675}
-  m_LocalRotation: {x: -0.007909143, y: -5.3768257e-10, z: -4.252742e-12, w: 0.99996877}
+  m_LocalRotation: {x: -0.007909145, y: 5.376826e-10, z: 4.2527436e-12, w: 0.99996877}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3344,6 +3345,10 @@ PrefabInstance:
       propertyPath: barrelTransform
       value: 
       objectReference: {fileID: 553290304}
+    - target: {fileID: 4933218806869489348, guid: 219c18ce4c267bd42bebd9404367143e, type: 3}
+      propertyPath: MaxBulletTravelDistance
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4933218806912761864, guid: 219c18ce4c267bd42bebd9404367143e, type: 3}
       propertyPath: m_Layer
       value: 2
