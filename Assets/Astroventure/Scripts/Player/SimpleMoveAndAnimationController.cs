@@ -28,7 +28,8 @@ namespace Astroventure.Controls // namespace for game logic
         [SerializeField] private Transform barrelTransform;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private Transform bulletParent;
-        [SerializeField] private float maxBulletTravelDistance = 100.0f;
+        [SerializeField] public float MaxBulletTravelDistance = 100.0f;
+        [SerializeField] private GameObject gunTarget;
 
         // variables related to user input
         private Vector3 moveDirection;
@@ -224,7 +225,7 @@ namespace Astroventure.Controls // namespace for game logic
             }
             else 
             {
-                bulletBehavior.bulletTarget = barrelTransform.position + barrelTransform.forward * maxBulletTravelDistance;
+                bulletBehavior.bulletTarget = barrelTransform.position + barrelTransform.forward * MaxBulletTravelDistance;
                 bulletBehavior.HasHitAnything = false;
             }
         }
@@ -256,6 +257,8 @@ namespace Astroventure.Controls // namespace for game logic
 
             moveDirection = Vector3.zero;
             initializeJumpVars();
+
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         /// <summary>

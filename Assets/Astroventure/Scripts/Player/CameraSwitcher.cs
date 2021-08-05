@@ -10,11 +10,16 @@ namespace Astroventure.Controls // namespace for game logic
         private LookControls lookControls;
         private bool isFocusPressed = false;
         private int numOfFocusPressed = 0;
+        private bool afterFocusReset = true;
 
         [SerializeField] private GameObject mainCinemachineCamera;
         [SerializeField] private GameObject aimCamera;
         [SerializeField] private GameObject aimReticle;
         [SerializeField] private SimpleMoveAndAnimationController controller;
+
+
+        //[SerializeField] private Transform barrelTransform;
+        [SerializeField] private Transform gunTargetTransform;
 
         public void OnMouseLook(InputAction.CallbackContext context)
         {
@@ -67,8 +72,22 @@ namespace Astroventure.Controls // namespace for game logic
                 mainCinemachineCamera.SetActive(false);
                 aimCamera.SetActive(true);
 
-                // give some time before the aim camera blends in.
-                StartCoroutine(ShowReticle());
+                RaycastHit hit;
+                if (Physics.Raycast(aimCamera.transform.position, aimCamera.transform.forward, out hit, Mathf.Infinity))
+                {
+                    gunTargetTransform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+                }
+                else
+                {
+                    gunTargetTransform.position = aimCamera.transform.position + aimCamera.transform.forward * controller.MaxBulletTravelDistance;
+                }
+
+                if (afterFocusReset)
+                {
+                    // give some time before the aim camera blends in.
+                    StartCoroutine(ShowReticle());
+                    afterFocusReset = false;
+                }
 
                 if (controller.isMovePressed || controller.isJumpPressed)
                 {
@@ -81,6 +100,7 @@ namespace Astroventure.Controls // namespace for game logic
                 aimCamera.SetActive(false);
                 aimReticle.SetActive(false);
                 numOfFocusPressed = 0;
+                afterFocusReset = true;
             }
         }
     }
