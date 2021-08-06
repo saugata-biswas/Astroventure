@@ -1,0 +1,3 @@
+Hologram.shadergraph and HologramLines.png these two assets are copied from: https://github.com/daniel-ilett/shaders-hologram
+
+Those assets are used to simulate hologram.
