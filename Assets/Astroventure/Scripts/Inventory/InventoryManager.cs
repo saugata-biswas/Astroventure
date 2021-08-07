@@ -12,6 +12,20 @@ public class InventoryManager : MonoBehaviour
         Inventory = new List<string>();
     }
 
+    public string GetInventoryListString()
+    {
+        if (Inventory.Count == 0)
+            return "";
+
+        string itemList = "Inventory items: ";
+        for (int i = 0; i < Inventory.Count; i++)
+        {
+            itemList = itemList + Inventory[i] + ", ";
+        }
+
+        return itemList;
+    }
+
     public void AddItem(string itemName)
     {
         Inventory.Add(itemName);

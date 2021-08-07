@@ -13,6 +13,11 @@ public class DestroyByBulletBehavior : MonoBehaviour
             gmObjToBeDestroyed = this.gameObject;
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")

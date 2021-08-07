@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject Dialogue0Canvas;
 
     public Dialogue dialogue;
+    public GameObject DialogueTriggerGmObj;
     
     
     void Start()
@@ -41,12 +42,13 @@ public class DialogueManager : MonoBehaviour
         }
         if (dialogue.choice.Length == 0)
         {
-            closeBtn.gameObject.SetActive(true);
+            //closeBtn.gameObject.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
             CloseDialogueCanvas();
+            Destroy(DialogueTriggerGmObj);
             Destroy(gameObject);
         }
     }
@@ -67,7 +69,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogue.choice.Length >= 1)
             instruction.text += " to select that choice.";
         else
-            instruction.text += " close button.";
+            instruction.text += " X button to close.";
     }
 
     public void CloseDialogueCanvas()

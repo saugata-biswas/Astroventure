@@ -20,6 +20,7 @@ public class EquipGunTrigger : MonoBehaviour
 
             animationSwitcher.weaponAtHand = true;
             GunOnAnimator.SetActive(true);
+            
 
             Destroy(gameObject);
         }

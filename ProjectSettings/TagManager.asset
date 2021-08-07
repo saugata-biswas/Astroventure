@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - HazardousMaterial
   - EnemyNPC
+  - MysteryItem
   layers:
   - Default
   - TransparentFX
