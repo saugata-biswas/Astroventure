@@ -1,0 +1,77 @@
+{
+    "name": "GuiControls",
+    "maps": [
+        {
+            "name": "Gui",
+            "id": "95f15681-9f0d-40fc-b6a2-f69fce16ce39",
+            "actions": [
+                {
+                    "name": "Close",
+                    "type": "Button",
+                    "id": "a563489a-c322-44a5-9389-8279757acea4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Choose1",
+                    "type": "Button",
+                    "id": "8311803a-2027-4d19-97ac-b7a7ad4dfa27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Choose2",
+                    "type": "Button",
+                    "id": "13a2d39d-e4cd-4004-8e4a-b4f208069384",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e96890fe-f9e9-43e2-a644-8694d9e36a03",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "Close",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "063125d8-861e-4a56-8e02-80c61ca123d6",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "Choose1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28f1ee8b-dcc5-427c-997c-a264e28352b2",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "Choose2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "KeyboardAndMouse",
+            "bindingGroup": "KeyboardAndMouse",
+            "devices": []
+        }
+    ]
+}

@@ -1,4 +1,6 @@
 // this script has been adapted from: https://www.youtube.com/watch?v=NEvdyefORBo,
+// https://www.youtube.com/watch?v=tdYsq96kCYI,
+// https://www.youtube.com/watch?v=5qDadIloxvU
 // https://www.youtube.com/watch?v=NGGoOa4BpmY
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +17,6 @@ public class Patrol : StateMachineBehaviour
     void Awake()
     {
         waypoints = GameObject.FindGameObjectsWithTag("waypoint");
-        //_navMeshAgent = this.gameobject.GetComponent<NavMeshAgent>();
     }
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -33,7 +34,7 @@ public class Patrol : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (waypoints.Length == 0) return;
-        if (Vector3.Distance(waypoints[currentWP].transform.position, NPC.transform.position) < 1.0f)
+        if (Vector3.Distance(waypoints[currentWP].transform.position, NPC.transform.position) < Random.Range(0.1f, 2.0f))
         {
             //currentWP++;
             //if (currentWP >= waypoints.Length)

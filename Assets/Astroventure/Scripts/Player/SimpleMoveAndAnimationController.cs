@@ -95,7 +95,7 @@ namespace Astroventure.Controls // namespace for game logic
         /// <param name="context">Is a InputAction callback context.</param>
         public void OnShoot(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && HasGunAtHand)
             {
                 ShootGun();
             }

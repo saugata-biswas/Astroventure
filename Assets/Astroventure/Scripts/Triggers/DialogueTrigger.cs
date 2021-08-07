@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     bool dialogueShown = false;
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "ThirdPersonPlayer" && dialogueShown == false)
+        if (other.name == "Player" && dialogueShown == false)
         {
             DialogueGmObj.SetActive(true);
             dialogueShown = true;

@@ -179,6 +179,8 @@ Document information will be constantly updated.
 ## Document references
 Following references are followed to make the game.
 
+Build levels quickly in unity with snaps https://www.youtube.com/watch?v=b4oqOdBCy3c
+
 Time. Unity Learn. https://learn.unity.com/tutorial/time-0fbw?projectId=5df2611eedbc2a0020d90217&amp;tab=overview&amp;uv=2019.4.
 
 Pluggable AI. Unity Learn https://learn.unity.com/tutorial/pluggable-ai-with-scriptable-objects#5c7f8528edbc2a002053b487
@@ -189,7 +191,7 @@ Mixamo https://www.mixamo.com/
 
 Unity's animation system  https://www.youtube.com/playlist?list=PLwyUzJb_FNeTQwyGujWRLqnfKpV-cj-eO
 
-Programming NPC Behavior https://www.youtube.com/watch?v=NEvdyefORBo
+Holistic3d, Programming NPC Behavior https://www.youtube.com/watch?v=NEvdyefORBo
 
 Navigation Mesh Basics https://www.youtube.com/watch?v=NGGoOa4BpmY
 
@@ -201,6 +203,7 @@ Sci-Fi Gun Heavy https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-
 
 Bullet hole https://opengameart.org/content/bullet-decal
 
+Bowling: Kegel & Ball https://assetstore.unity.com/packages/3d/props/bowling-kegel-ball-67371
 ## Attachments
 Currently, there are no attachments.
 
