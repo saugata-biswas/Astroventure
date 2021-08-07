@@ -27,7 +27,7 @@ public class NPCManager : MonoBehaviour
    
     void Update()
     {
-        Vector3 pos = RandomNavmeshLocation(5.0f);
-        Debug.Log(pos.ToString());
+        //Vector3 pos = RandomNavmeshLocation(5.0f);
+        //Debug.Log(pos.ToString());
     }
 }
