@@ -7,12 +7,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Patrol : StateMachineBehaviour
+public class Patrol : NPCBaseFSM
 {
-    GameObject NPC;
     GameObject[] waypoints;
     int currentWP;
-    NavMeshAgent _navMeshAgent;
+    
 
     void Awake()
     {
@@ -22,12 +21,13 @@ public class Patrol : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NPC = animator.gameObject;
-        currentWP = Random.Range(0, waypoints.Length - 1);
-        _navMeshAgent = animator.gameObject.GetComponent<NavMeshAgent>();
+        base.OnStateEnter(animator, stateInfo, layerIndex);
 
+        currentWP = Random.Range(0, waypoints.Length - 1);
         Vector3 targetVector = waypoints[currentWP].transform.position;
-        _navMeshAgent.SetDestination(targetVector);
+
+        if (navMeshAgent.enabled)
+            navMeshAgent.SetDestination(targetVector);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -41,16 +41,15 @@ public class Patrol : StateMachineBehaviour
             //    currentWP = 0;
             currentWP = Random.Range(0, waypoints.Length - 1);
 
-
-            if (_navMeshAgent != null)
+            if (navMeshAgent != null)
             {
-                //Debug.Log("Set destination");
                 Vector3 targetVector = waypoints[currentWP].transform.position;
-                _navMeshAgent.SetDestination(targetVector);
+                if (navMeshAgent.enabled)
+                    navMeshAgent.SetDestination(targetVector);
             }
 
-            if (Random.value > 0.8)
-                animator.SetBool("Wandering", false);
+            //if (Random.value > 0.8)
+            //    animator.SetBool("Wandering", false);
         }
     }
 
