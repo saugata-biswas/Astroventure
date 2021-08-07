@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FindAxeConv0
   m_EditorClassIdentifier: 
   speaker: Krittim
-  narration: 'Have a quest for you:  Find axe and power ball (blue).
+  narration: 'Have a quest for you:  Blast the power generator behind the particles''
+    wall.
 
-    Avoid electricuted
-    walls (red ones).'
+    Avoid the particles, if you touch them you will loose life.'
   choice: []

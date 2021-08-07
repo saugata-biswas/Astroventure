@@ -43,6 +43,12 @@ public class DialogueManager : MonoBehaviour
         {
             closeBtn.gameObject.SetActive(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            CloseDialogueCanvas();
+            Destroy(gameObject);
+        }
     }
 
     void UpdateTexts()

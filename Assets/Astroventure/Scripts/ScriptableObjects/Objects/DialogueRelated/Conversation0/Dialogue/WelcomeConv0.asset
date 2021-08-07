@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29fa9f0170e611348ae880a5b31a75ac, type: 3}
   m_Name: WelcomeConv0
   m_EditorClassIdentifier: 
-  speaker: Krittim
-  narration: Hello adventurer, welcome to our spaceship Synaptron. Why are you visiting?
+  speaker: Krittim & Mittha
+  narration: Hello adventurer, we the guardian followed you since you had landed
+    here at  our spaceship Synaptron. We see, you have been busy fighting our sentries.
+    Why are you visiting?
   choice:
   - {fileID: 11400000, guid: 57e3aa01286ba114b9f9b19157a89301, type: 2}

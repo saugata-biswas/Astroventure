@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0191ba63e1c47f46b91cadb6a3fabfa, type: 3}
   m_Name: LookingForConv0
   m_EditorClassIdentifier: 
-  lines: I am here to collect object #750A, it is an object I know you have. Would
+  lines: I am here to collect object #314159, it is an object I know you have. Would
     you please give it to me?
   NextDialogue: {fileID: 11400000, guid: 9b20d94259e533f4aba31acb5acb9314, type: 2}

@@ -5,10 +5,7 @@ using UnityEngine.InputSystem;
 
 public class OnWinTrigger : MonoBehaviour, GuiControls.IGuiActions
 {
-    [SerializeField] private GameObject CanvasGmObj;
     private GuiControls guiControls;
-    [SerializeField] private GameObject player;
-
 
     void Awake()
     {
