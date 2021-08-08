@@ -207,7 +207,106 @@ Bowling: Kegel & Ball https://assetstore.unity.com/packages/3d/props/bowling-keg
 ## Attachments
 Currently, there are no attachments.
 
+## Study
 
+The game build was distributed online. A questionnaire was also given to the participants. After playing the game the participants filled up the survey form. The study was conducted online using Google docs. The were given a questionnaire. Here are some of descriptive statics.
+
+There were 12 participants, 11 were male, 1 person preferred not to disclose this information.
+
+41.7% of the participants played video games once or twice in a month,
+41.7% of the participants played video games weekly once or twice,
+16.7% of the participants played video games daily.
+
+
+1: Completely disagree, 5: Completely agree
+
+Question: I had fun playing this game.
+count: 12, mean: 3.75000, std: 1.13818, median: 4.0
+
+Question: I found the game controls intuitive.
+count: 12, mean: 3.250000, std: 1.13818, median: 3.5
+
+Question: The gameplay was easy to learn.
+count: 12, mean: 3.666667, std: 0.984732, median: 3.5
+
+Question: I found the gameplay challenging.
+count: 12, mean: 3.583333, std: 1.311372, median: 3.5
+
+Question: I found the gameplay was gradually introducing difficulty.
+count: 12, mean: 3.25000, std: 1.05529, median: 3.0
+
+Question: I found the background story intriguing.
+count: 12, mean: 3.500000, std: 1.087115, median: 4.0
+
+Question: I found the gameplay engaging.
+count: 12, mean: 3.750000, std: 1.215431, median: 4.0
+
+Question: I liked the GUI (Graphical User Interface) of the game.
+count: 12, mean: 4.250000, std: 0.753778, median: 4.0
+
+Question: I found the gameplay immersive.
+count: 12, mean: 3.750000, std: 1.215431, median: 4.0
+
+Question: I enjoyed the sound design in the game.
+count: 12, mean: 4.000000, std: 0.738549, median: 4.0
+
+Question: I found the shooting game mechanic easy.
+count: 12, mean: 3.083333, std: 1.564279, median: 4.0
+
+Question: I felt curious while playing the game.
+count: 12, mean: 3.833333, std: 1.267304, median: 4.0
+
+Question: I felt the game was too long.
+count: 12, mean: 2.250000, std: 1.215431, median: 2.0
+
+Question: Did you need to check the hints while playing?
+count: 12, yes: 75%, no: 25%
+
+Question: Did you finish the game?
+count: 12, yes: 41.7%, no: 58.3%
+
+Question: Would you play an updated version of the game?
+count: 12, yes: 83.3%, no: 16.7%
+
+
+Some more results were derived by investigating the histogram of data found from the Google docs results. Here are some of those:
+
+Grouped the results for: I found the game controls intuitive. by: How often do you play video games?                                      
+
+Daily: mean 3.0, median: 3
+
+Weekly once or twice: mean 3.0, median 2
+
+Monthly once or twice: mean 3.6, median 4
+
+
+Grouped the results for: I found the gameplay challenging. by: How often do you play video games?                                      
+
+Daily: mean 3.0, median: 3
+
+Weekly once or twice: mean 3.6, median 3
+
+Monthly once or twice: mean 3.8, median 5
+
+
+Grouped the results for: I found the shooting game mechanic easy. by: How often do you play video games?                                      
+
+Daily: mean 3.0, median: 3
+
+Weekly once or twice: mean 2.6, median 2
+
+Monthly once or twice: mean 3.6, median 4
+
+
+Grouped the results for: I found the shooting game mechanic easy. by: How often do you play video games?                                      
+
+Daily: mean 3.0, median: 3
+
+Weekly once or twice: mean 3.8, median 4
+
+Monthly once or twice: mean 4.0, median 4
+
+=========================================
 
 
 
